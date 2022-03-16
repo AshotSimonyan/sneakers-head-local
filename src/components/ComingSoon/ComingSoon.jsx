@@ -13,7 +13,7 @@ const ComingSoon = () => {
             <h2 className='title'>We are still building. See you soon.</h2>
             <p className='text'>Sneaker Head is a project composed of 8,888 NFTs crafted by talented and expert designers and developers.</p>
             <p className='text'>We unified the most experienced people in the industry to deliver a remarkable, cutting-edge product.</p>
-            <Button href='https://discord.com/invite/JPMgm9c2'>Join Our Discord</Button>
+            <Button href='https://discord.com/invite/JPMgm9c2' target='_blank'>Join Our Discord</Button>
           </div>
         </div>
       </div>
