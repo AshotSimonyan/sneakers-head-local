@@ -42,10 +42,7 @@ const ComingSoon = () => {
             </h1>
           </div>
           <p className='text'>
-            Sneaker Head is a project composed of 8,888 NFTs crafted by talented
-            and expert designers and developers. We unified the most experienced
-            people in the industry to deliver a remarkable, cutting-edge
-            product.
+              Sneaker Heads is an NFT collection made by the artist Ali Dawood. The project aims to bring the Sneaker culture in the NFT space. This collection is the initial drop and then many drops and collaborations are anticipated.
           </p>
           <span>
             By <a href='https://mobile.twitter.com/ill_lawi' target='_blank' rel='noreferrer'>ALI DAWOOD</a>
