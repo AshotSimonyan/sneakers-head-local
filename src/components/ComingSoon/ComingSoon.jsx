@@ -1,6 +1,5 @@
 import { ComingSoonStyle } from './ComingSoon.style';
-// import AirModel from '../AirModel/AirModel';
-import AirModel from '../AirModel/AirModelCopy';
+import AirModel from '../AirModel/AirModel';
 import Preloader from '../Preloader/Preloader';
 import { Icon } from '../UIKit';
 
@@ -21,21 +20,11 @@ const ComingSoon = () => {
                     <li>
                         <a
                             target='_blank'
-                            href='#'
+                            href='https://twitter.com/sneakerheadsoff'
                             rel='noreferrer'
                             className='social-btn'
                         >
                             <Icon name='twitter' size={32} />
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target='_blank'
-                            href='#'
-                            rel='noreferrer'
-                            className='social-btn'
-                        >
-                            <Icon name='discord' size={32} />
                         </a>
                     </li>
                 </ul>
@@ -45,12 +34,6 @@ const ComingSoon = () => {
 
         <div className='left'>
           <AirModel />
-            {/*<video  autoPlay muted loop style={{width: '100%', height: '100%'}}>*/}
-            {/*    <source src="sneakerhead_1000x1260_DNxHR_HQ.mov"  />*/}
-            {/*    <source src="sneakerhead_1000x1260_VP9.webm" type='video/webm'  />*/}
-            {/*    /!*<source src="movie.ogg" type="video/ogg" />*!/*/}
-            {/*            Your browser does not support the video tag.*/}
-            {/*</video>*/}
         </div>
         <div className='right'>
           <div>
@@ -65,7 +48,7 @@ const ComingSoon = () => {
             product.
           </p>
           <span>
-            By <a href='#'>ALI DAWOOD</a>
+            By <a href='https://mobile.twitter.com/ill_lawi' target='_blank' rel='noreferrer'>ALI DAWOOD</a>
           </span>
         </div>
       </div>

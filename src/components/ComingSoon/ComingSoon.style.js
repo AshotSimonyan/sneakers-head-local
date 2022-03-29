@@ -46,12 +46,13 @@ export const ComingSoonStyle = styled.main`
     flex-direction: column;
     width: 100%;
     padding-top: 48px;
+    position: relative;
+    z-index: 1;
     
     ul {
       margin-top: 20px;
       display: flex;
       .social-btn {
-        margin-right: 20px;
         height: 32px;
         width: 32px;
         border-radius: 50%;

@@ -1,75 +1,44 @@
-import React, { useState, useRef, useEffect } from 'react';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
+import React, { useRef, Suspense } from 'react'
+import {OrbitControls, Environment, useGLTF, Stage} from '@react-three/drei'
+import {Canvas, useFrame} from "@react-three/fiber";
 
-extend({ OrbitControls });
+const Model = ({ ...props }) => {
+  const group = useRef()
+  const { nodes } = useGLTF('/sneaker-compressed.glb')
 
-const SpaceShip = () => {
-  const [model, setModel] = useState();
-
-  useEffect(() => {
-    new GLTFLoader().load('/1k.glb', setModel);
-  }, []);
-  if (model) {
-    model.scene.anisotropy = 16;
-  }
-
-  console.log(model);
-  return model ? (
-    <primitive object={model.scene} position={[0, 0, 0]} scale={[1, 1, 1]} />
-  ) : null;
-};
-
-const Controls = () => {
-  const orbitRef = useRef();
-  const { camera, gl } = useThree();
-
-  useFrame(() => {
-    orbitRef.current.update();
-  });
-
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime()
+    group.current.position.y = (-5 + Math.sin(t / 1.2)) / 44
+  })
   return (
-    <orbitControls
-      autoRotate={true}
-      autoRotateSpeed={6}
-      maxPolarAngle={Math.PI / 2}
-      minPolarAngle={Math.PI / 2}
-      enableZoom={false}
-      enablePan={false}
-      args={[camera, gl.domElement]}
-      ref={orbitRef}
-    />
-  );
-};
+    <group ref={group} {...props} dispose={null} >
+      <mesh geometry={nodes.AirMax_Head_Low.geometry} material={nodes.AirMax_Head_Low.material} position={[0, 0, 0]} scale={0.1} />
+      <mesh geometry={nodes.Cords_low.geometry} material={nodes.Cords_low.material} scale={0.01} />
+      <mesh geometry={nodes.MADE_IN_METAVERSE.geometry} material={nodes.MADE_IN_METAVERSE.material} rotation={[Math.PI / 2, 0, 0]} scale={0.01} />
+    </group>
+  )
+}
 
-export default function AirModel() {
-  const isBrowser = typeof window !== 'undefined';
-  console.log(SpaceShip());
+function App() {
   return (
-    <>
-      {isBrowser && (
-        <Canvas
-          style={{ width: '100%', height: '100%' }}
-          camera={{ position: [0, 0, 22] }}
-          onCreated={({ gl }) => {
-            gl.shadowMap.enabled = true;
-            gl.anisotropy = 16;
-            gl.shadowMap.type = THREE.PCFSoftShadowMap;
-          }}
-        >
-          <ambientLight intensity={0.3} color='0xffffff' />
-          <ambientLight intensity={0.3} position={[-10, -20, 0]} />
-          <directionalLight intensity={0.9} position={[10, 30, 0]} />
-          <directionalLight intensity={0.9} position={[10, 10, 0]} />
-          <directionalLight intensity={0.9} position={[-10, 10, 0]} />
-          <directionalLight intensity={0.9} position={[-5, -10, 0]} />
+    <Canvas shadows dpr={[1, 2]}  camera={{ zoom: 0.8, position: [0, 0, 0], fov: 30 }}>
+      <Suspense fallback={null}>
 
-          <Controls />
-          <SpaceShip />
-        </Canvas>
-      )}
-    </>
+        <Stage preset="rembrandt" intensity={0.9}>
+          <Model />
+        </Stage>
+        <Environment preset="sunset" />
+      </Suspense>
+      <OrbitControls
+        autoRotate
+        autoRotateSpeed={6}
+        enableZoom={false}
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={Math.PI / 2}
+      />
+    </Canvas>
+
   );
 }
+
+export default App;
