@@ -1,13 +1,15 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const HeaderStyle = styled.header`
-  background-color: ${({ theme }) => theme.colors.primary};
-  height: 80px;
+  height: 72px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99;
+  transition: background-color 0.18s ease-out;
+  background-color: ${({ headerScrolled, theme }) =>
+    headerScrolled ? theme.colors.primary : 'transparent'};
 
   &.sticky {
     transition: box-shadow 0.3s;
@@ -17,10 +19,6 @@ export const HeaderStyle = styled.header`
   .container,
   .header-content {
     height: 100%;
-  }
-
-  .hamburger {
-    display: none;
   }
 
   .header-content {
@@ -35,57 +33,12 @@ export const HeaderStyle = styled.header`
   }
 
   .logo {
-    max-width: 130px;
+    max-width: 204px;
     display: block;
-
+    padding: 10px 10px 10px 0;
     img {
       width: 100%;
       display: block;
-    }
-  }
-
-  .header-nav {
-    flex: 2;
-
-    .header-nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .header-nav-list {
-      display: flex;
-
-      > li {
-        cursor: pointer;
-        line-height: 1;
-        margin-right: 16px;
-        font-size: ${({ theme }) => theme.fontSizes.md};
-        font-family: ${({ theme }) => theme.fonts.secondary};
-        padding: 8px 16px;
-        position: relative;
-        background-color: ${({ theme }) => theme.colors.white};
-        border: 2px solid ${({ theme }) => theme.colors.black};
-        border-radius: 52px;
-        transition: background-color, color 0.5s;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        &:hover {
-          background-color: ${({ theme }) => theme.colors.black};
-          color: ${({ theme }) => theme.colors.white};
-        }
-      }
-    }
-
-    .copyright {
-      display: none;
-    }
-
-    &::-webkit-scrollbar {
-      display: none !important;
     }
   }
 
@@ -104,11 +57,10 @@ export const HeaderStyle = styled.header`
   }
 
   .social-btn {
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
-    border: 2px solid ${({ theme }) => theme.colors.black};
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,105 +69,22 @@ export const HeaderStyle = styled.header`
 
     .icon {
       path {
+        fill: ${({ theme }) => theme.colors.white};
         transition: 0.5s;
       }
     }
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.black};
+      background-color: ${({ theme }) => theme.colors.white};
 
       .icon {
         path {
-          fill: ${({ theme }) => theme.colors.white};
+          fill: ${({ theme }) => theme.colors.black};
         }
-      }
-    }
-  }
-
-  .social-mobile {
-    display: none;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    .hamburger {
-      margin-left: 20px;
-      display: inline-block;
-      cursor: pointer;
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      border: 2px solid ${({ theme }) => theme.colors.black};
-      background-color: ${({ theme }) => theme.colors.white};
-    }
-
-    &.open {
-      .header-nav {
-        height: calc(100% - 80px);
-      }
-    }
-
-    .header-nav {
-      position: fixed;
-      top: 80px;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      overflow-y: auto;
-      z-index: 100;
-      height: 0;
-      transition: height 0.5s;
-      background-color: ${({ theme }) => theme.colors.white};
-
-      .header-nav-inner {
-        flex-direction: column;
-        align-items: inherit;
-        justify-content: space-between;
-        height: calc(100vh - 80px);
-        padding-top: 120px;
-        background-color: ${({ theme }) => theme.colors.primary};
-      }
-
-      .header-nav-list {
-        flex-direction: column;
-        padding: 0 20px;
-        align-items: flex-start;
-
-        > li {
-          padding: 24px 40px;
-          margin-right: 0;
-          font-size: ${({ theme }) => theme.titleSizesSM.h2};
-
-          &:not(:first-child) {
-            margin-top: 24px;
-          }
-        }
-      }
-
-      .copyright {
-        display: block;
-        text-align: center;
-        padding: 24px 20px;
-        font-size: ${({ theme }) => theme.fontSizes.md};
       }
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    .header-nav {
-      .header-nav-inner {
-        padding-top: 100px;
-      }
-
-      .header-nav-list {
-        > li {
-          font-size: ${({ theme }) => theme.titleSizes.h3};
-
-          &:not(:first-child) {
-            margin-top: 16px;
-          }
-        }
-      }
-    }
-   
   }
-`
+`;

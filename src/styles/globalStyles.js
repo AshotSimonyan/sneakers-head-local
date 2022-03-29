@@ -1,4 +1,4 @@
-import { createGlobalStyle, keyframes } from "styled-components"
+import { createGlobalStyle, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -9,7 +9,7 @@ const fadeIn = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`
+`;
 
 export const GlobalStyle = createGlobalStyle`
   /*reset*/
@@ -67,6 +67,7 @@ export const GlobalStyle = createGlobalStyle`
    */
   html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 
   *, *:before, *:after {
@@ -110,8 +111,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.primary};
     font-size: ${({ theme }) => theme.fontSizes.lg};
     color: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.primaryGradient};
     font-weight: 400;
     line-height: 1.4;
+    overflow-x: hidden;
+    margin: 0;
   }
 
   .container {
@@ -122,7 +126,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .main-wrapper {
-    padding-top: 64px;
+    padding-top: 134px;
+    overflow-x: hidden;
   }
 
   /*typography*/
@@ -184,7 +189,7 @@ export const GlobalStyle = createGlobalStyle`
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
 
     body {
-      font-size: ${({theme}) => theme.fontSizesSM.lg};
+      font-size: ${({ theme }) => theme.fontSizesSM.lg};
     }
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
@@ -214,4 +219,4 @@ export const GlobalStyle = createGlobalStyle`
     }
 
   }
-`
+`;

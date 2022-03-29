@@ -1,12 +1,11 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const TeamStyle = styled.section`
-  padding: 120px 0;
-  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 100px 0;
   overflow: hidden;
 
   .title {
-    padding-bottom: 48px;
+    padding-bottom: 80px;
     text-align: center;
   }
 
@@ -22,26 +21,40 @@ export const TeamStyle = styled.section`
   .name {
     font-family: ${({ theme }) => theme.fonts.secondary};
     padding-top: 4px;
-
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
     .icon {
       margin-left: 8px;
     }
   }
 
   .position {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
+    margin-top: 4px;
+    font-size: 16px;
+    text-align: center;
   }
   .team-list {
     display: flex;
-    margin-left: -24px;
+    margin-left: -20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .team-card {
     width: 262px;
-    margin-left: 24px;
-    padding: 16px;
-    border: 3px solid ${({ theme }) => theme.colors.black};
-    border-radius: 20px;
-    background-color: ${({ theme }) => theme.colors.white};
+    min-width: 262px;
+    margin-left: 20px;
+    margin-bottom: 42px;
+    img {
+      max-width: 175px;
+      margin: 0 auto;
+    }
+  }
+
+  .main-artist {
+    margin: 24px auto !important;
+    margin-bottom: 42px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
@@ -52,15 +65,14 @@ export const TeamStyle = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding: 80px 0;
     .team-list {
-      justify-content: space-between;
       flex-wrap: wrap;
-      margin-left: -16px;
+      margin-left: -24px;
     }
     .team-card {
-      width: calc((100% / 2) - 16px);
-      margin-left: 16px;
-      margin-bottom: 16px;
-
+      width: 170px;
+      margin-left: 24px;
+      margin-bottom: 24px;
+      min-width: unset;
       &:nth-child(even) {
         margin-top: 0;
       }
@@ -76,4 +88,4 @@ export const TeamStyle = styled.section`
       width: 100%;
     }
   }
-`
+`;
