@@ -7,7 +7,7 @@ import { Icon } from '../UIKit';
 const ComingSoon = () => {
   return (
     <ComingSoonStyle>
-      <Preloader />
+      {/*<Preloader />*/}
         <img className='img-abs cloud1' src="assets/coming-soon/cloud1.png" alt=""/>
         <img className='img-abs cloud2' src="assets/coming-soon/cloud2.png" alt=""/>
         <img className='img-abs head1' src="assets/coming-soon/floating-head-1.png" alt=""/>
@@ -44,13 +44,13 @@ const ComingSoon = () => {
       <div className='content'>
 
         <div className='left'>
-          <AirModel />
-            {/*<video  autoPlay muted loop style={{width: '100%', height: '100%'}}>*/}
-            {/*    <source src="sneakerhead_1000x1260_DNxHR_HQ.mov"  />*/}
-            {/*    <source src="sneakerhead_1000x1260_VP9.webm" type='video/webm'  />*/}
-            {/*    /!*<source src="movie.ogg" type="video/ogg" />*!/*/}
-            {/*            Your browser does not support the video tag.*/}
-            {/*</video>*/}
+          {/*<AirModel />*/}
+            <video  autoPlay muted loop style={{width: '100%', height: '100%'}}>
+                {/*<source src="sneakerhead_1000x1260_DNxHR_HQ.mov"  />*/}
+                <source src="sneakerhead_highRes_0000.webm" type='video/webm'  />
+                {/*<source src="movie.ogg" type="video/ogg" />*/}
+                        Your browser does not support the video tag.
+            </video>
         </div>
         <div className='right'>
           <div>
