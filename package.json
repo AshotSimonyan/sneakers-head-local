@@ -28,6 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "node ./scripts/comment.js",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
