@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const AboutStyle = styled.section`
   padding-bottom: 100px;
@@ -26,7 +26,7 @@ export const AboutStyle = styled.section`
     display: flex;
     position: relative;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 130%;
       height: 130%;
@@ -54,7 +54,7 @@ export const AboutStyle = styled.section`
     }
     &::after,
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 130%;
       height: 130%;
@@ -172,4 +172,4 @@ export const AboutStyle = styled.section`
       }
     }
   }
-`;
+`

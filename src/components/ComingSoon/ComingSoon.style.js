@@ -1,21 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const ComingSoonStyle = styled.main`
-  background: url('assets/coming-soon/coming-bg.jpg') center center;
+  background: url("assets/coming-soon/coming-bg.jpg") center center;
   background-size: cover;
   position: relative;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-weight: 200;
   min-height: 100vh;
 
   .img-abs {
     position: absolute;
-    
+
     &.cloud1 {
       top: 0;
       left: 0;
     }
-    
+
     &.cloud2 {
       bottom: 0;
       right: 120px;
@@ -24,7 +24,7 @@ export const ComingSoonStyle = styled.main`
       object-position: top;
       object-fit: cover;
     }
-    
+
     &.head1 {
       top: 70px;
       right: 0;
@@ -48,7 +48,7 @@ export const ComingSoonStyle = styled.main`
     padding-top: 48px;
     position: relative;
     z-index: 1;
-    
+
     ul {
       margin-top: 20px;
       display: flex;
@@ -104,7 +104,7 @@ export const ComingSoonStyle = styled.main`
     max-width: 475px;
     padding: 0 24px;
     width: 100%;
-    
+
     img {
       width: 100%;
       display: block;
@@ -113,7 +113,6 @@ export const ComingSoonStyle = styled.main`
   .left {
     width: 480px;
     height: 640px;
-    
   }
   .right {
     flex: 1;
@@ -123,7 +122,7 @@ export const ComingSoonStyle = styled.main`
       display: inline-block;
       font-weight: 400;
       font-size: 120px;
-      font-family: 'Fugaz one', cursive;
+      font-family: "Fugaz one", cursive;
       text-transform: uppercase;
       text-align: end;
       line-height: 80%;
@@ -134,7 +133,7 @@ export const ComingSoonStyle = styled.main`
       font-weight: 200;
       font-size: 16px;
       margin: 32px 0;
-      letter-spacing: 0.08em
+      letter-spacing: 0.08em;
     }
   }
 
@@ -148,8 +147,6 @@ export const ComingSoonStyle = styled.main`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     .img-abs {
-
-
       &.cloud2 {
         width: 306px;
         height: 90px;
@@ -179,9 +176,7 @@ export const ComingSoonStyle = styled.main`
     }
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-
     .img-abs {
-      
       &.cloud2 {
         width: 306px;
         height: 90px;
@@ -200,7 +195,7 @@ export const ComingSoonStyle = styled.main`
         bottom: 28px;
       }
     }
-    
+
     .content {
       flex-direction: column;
       padding: 16px 40px 140px;
@@ -233,9 +228,8 @@ export const ComingSoonStyle = styled.main`
       }
 
       &.head1 {
-        width:70px;
+        width: 70px;
       }
-
     }
     .left {
       width: 100%;
@@ -267,4 +261,4 @@ export const ComingSoonStyle = styled.main`
       }
     }
   }
-`;
+`

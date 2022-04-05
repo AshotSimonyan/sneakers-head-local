@@ -13,9 +13,9 @@ export const ButtonStyle = styled.a`
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  background: linear-gradient(273.92deg, #0FB7FF 5.99%, #094B7B 93.95%);
+  background: linear-gradient(273.92deg, #0fb7ff 5.99%, #094b7b 93.95%);
   background-size: 150% 100%;
-  
+
   .icon {
     margin-right: 12px;
     path {
@@ -26,10 +26,9 @@ export const ButtonStyle = styled.a`
   ${({ variant }) =>
     variant === "primary" &&
     css`
-
       &:hover {
         background-position: 100% 0;
-        transition: all .4s ease-in-out;
+        transition: all 0.4s ease-in-out;
       }
     `}
 

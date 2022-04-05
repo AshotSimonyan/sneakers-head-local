@@ -1,20 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const HeaderStyle = styled.header`
-  height: 72px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
+  padding-top: 78px;
   transition: background-color 0.18s ease-out;
   background-color: ${({ headerScrolled, theme }) =>
-    headerScrolled ? theme.colors.primary : 'transparent'};
-
-  &.sticky {
-    transition: box-shadow 0.3s;
-    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-  }
+    headerScrolled ? theme.colors.primary : "transparent"};
 
   .container,
   .header-content {
@@ -39,6 +29,46 @@ export const HeaderStyle = styled.header`
     img {
       width: 100%;
       display: block;
+    }
+  }
+  
+    .header-nav {
+    flex: 2;
+
+    .header-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-nav-list {
+      display: flex;
+
+      > li {
+        cursor: pointer;
+        line-height: 1;
+        margin-right: 16px;
+        font-size: ${({ theme }) => theme.fontSizes.md};
+        position: relative;
+        transition: color 0.5s;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &:hover {
+          background-color: ${({ theme }) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.white};
+        }
+      }
+    }
+
+    .copyright {
+      display: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none !important;
     }
   }
 
@@ -87,4 +117,4 @@ export const HeaderStyle = styled.header`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
   }
-`;
+`

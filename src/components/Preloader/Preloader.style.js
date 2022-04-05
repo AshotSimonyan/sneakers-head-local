@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const PreloaderStyle = styled.div`
   position: fixed;
@@ -44,7 +44,7 @@ export const PreloaderStyle = styled.div`
     img {
       width: 120px;
     }
-    div[data-test-id='CircularProgressbarWithChildren__children'] {
+    div[data-test-id="CircularProgressbarWithChildren__children"] {
       margin-top: -105% !important;
     }
     /* @include mq(sm) {
@@ -73,4 +73,4 @@ export const PreloaderStyle = styled.div`
       font-size: 2rem;
     }
   }
-`;
+`

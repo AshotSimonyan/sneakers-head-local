@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const FAQStyle = styled.section`
   padding: 160px 0;
@@ -24,7 +24,7 @@ export const FAQStyle = styled.section`
           width: 100%;
         }
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           width: 130%;
           height: 130%;
@@ -125,4 +125,4 @@ export const FAQStyle = styled.section`
       margin: 24px auto;
     }
   }
-`;
+`

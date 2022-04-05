@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const TeamStyle = styled.section`
   padding: 100px 0;
@@ -88,4 +88,4 @@ export const TeamStyle = styled.section`
       width: 100%;
     }
   }
-`;
+`

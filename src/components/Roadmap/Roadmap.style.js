@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const RoadmapStyle = styled.div`
   padding: 100px 0;
@@ -46,7 +46,7 @@ export const RoadmapStyle = styled.div`
       z-index: 3;
     }
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 100% !important;
       height: 100% !important;
@@ -116,4 +116,4 @@ export const RoadmapStyle = styled.div`
       }
     }
   }
-`;
+`
