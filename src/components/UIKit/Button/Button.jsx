@@ -20,9 +20,9 @@ export const Button = ({
       rel="noreferrer"
       {...props}
     >
-      {withIcon && <Icon name={iconName} color={theme.colors.white} />}
-
-      {children}
+      <span>
+        {children}
+      </span>
     </ButtonStyle>
   )
 }

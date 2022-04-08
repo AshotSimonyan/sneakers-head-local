@@ -1,95 +1,119 @@
 import styled from "styled-components"
 
 export const FAQStyle = styled.section`
-  padding: 160px 0;
+  padding: 100px 0;
 
   .title {
-    margin-bottom: 40px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 120px;
+    margin-bottom: 60px;
+    white-space: nowrap;
     position: relative;
-    z-index: 1;
-  }
-  .faq-content {
-    display: flex;
 
-    .left {
-      margin-top: 124px;
-      position: relative;
-      z-index: 1;
-      margin-right: 1.5rem;
-      .left-image {
-        width: 100%;
-        max-width: 548px;
-        position: relative;
-        img {
-          width: 100%;
-        }
-        &::after {
-          content: "";
-          position: absolute;
-          width: 130%;
-          height: 130%;
-          background-image: url(assets/blur.png);
-          background-size: 92%;
-          top: -20%;
-          z-index: -1;
-          left: -15%;
-          background-repeat: no-repeat;
-        }
-      }
+    .img-right, .img-left {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    .right {
-      flex: 1;
-      padding-left: 24px;
+    .img-right {
+      left: 100%;
+      margin-left: 35px;
+    }
+
+    .img-left {
+      margin-right: 35px;
+      display: none;
     }
   }
-
+   
   .Collapsible {
-    border-bottom: 1px solid #0fb7ff;
+    background-color: #1C1C1C;
+    border-bottom: 1px solid #2A2A2A;
   }
 
   .Collapsible__trigger {
     display: block;
-    border-radius: 16px 16px 0 0;
+    //padding: 0 30px 0 60px;
 
     &.is-open {
+      background-color: #2F2F2F;
+      
+      .icon-wrapper {
+        background: #131313;
+      }
       .icon {
-        transform: rotate(180deg);
+        transform: rotate(135deg);
       }
     }
   }
 
   .Collapsible__contentInner {
-    padding-bottom: 24px;
+    padding: 60px 90px;
+    background-color: #131313;
     font-size: 16px;
     user-select: none;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .trigger-inner {
     position: relative;
-    font-weight: 900;
-    padding: 16px 40px 30px 0;
+    padding: 32px 60px;
     cursor: pointer;
-    font-size: 16px;
     user-select: none;
-    text-transform: uppercase;
-    font-family: ${({ theme }) => theme.fonts.secondary};
-    .icon {
+    font-weight: 400;
+    // font-family: ${({ theme }) => theme.fonts.secondary};
+    
+    .icon-wrapper {
       position: absolute;
-      top: 10px;
-      fill: white;
-      right: 0;
+      top: 50%;
+      right: 10px;
       transition: 0.5s;
+      transform: translateY(-50%);
+      height: 64px;
+      width: 64px;
+      border-radius: 20px 0 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon {
+      transform:  rotate(0deg);
+      fill: white;
+      transition: 0.5s;
+      
     }
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+    .title {
+      font-size: 87px;
+    }
+    
+    .trigger-inner {
+      padding: 25px 60px;
+
+      .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        
+        .icon {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+    .Collapsible__contentInner {
+      padding: 30px 60px;
+    }
+  }
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     padding: 120px 0;
     .title {
-      margin-bottom: 24px;
+      font-size: 73px;
     }
-    .faq-content {
+    .content {
       .left {
         width: 360px;
       }
@@ -98,31 +122,77 @@ export const FAQStyle = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding: 80px 0;
-    .faq-content {
-      flex-direction: column;
-      .left {
-        margin: 40px auto;
-        width: 100%;
 
-        order: 2;
-        img {
-          max-width: unset;
-        }
-        .title {
-          padding-bottom: 12px;
-        }
+    .title-wrapper {
+      text-align: center;
+      overflow: hidden;
+    }
+    .title {
+      font-size: 60px;
+
+      .img-left, .img-right {
+        width: 200px;
       }
-      .left-image {
-        margin: 0 auto;
-      }
-      .right {
-        padding-left: 0;
+      .img-left {
+        display: block;
+        right: 100%;
       }
     }
+
   }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    .left-image {
-      margin: 24px auto;
+    
+    .title {
+      font-size: 47px;
+      .img-left {
+        margin-right: 16px;
+      }
+      .img-right {
+        margin-left: 16px;
+      }
+    }
+
+
+    .trigger-inner {
+      padding: 16px 60px 16px 30px;
+      font-size: 16px;
+
+      .icon-wrapper {
+        width: 42px;
+        height: 42px;
+        border-radius: 16px 0 16px 0;
+
+        .icon {
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+    .Collapsible__contentInner {
+      padding: 20px 30px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+    padding: 30px 0;
+    .title {
+      font-size: 30px;
+    }
+
+    .trigger-inner {
+      padding: 16px 60px 16px 24px;
+      .icon-wrapper {
+        width: 36px;
+        height: 36px;
+        border-radius: 16px 0 16px 0;
+
+        .icon {
+          height: 12px;
+          width: 12px;
+        }
+      }
     }
   }
 `

@@ -1,117 +1,231 @@
 import styled from "styled-components"
 
 export const RoadmapStyle = styled.div`
-  padding: 100px 0;
-  background-color: #10072a;
-  background-image: linear-gradient(
-    180deg,
-    #10072a 0%,
-    #10072a 92%,
-    #100b36 100%
-  );
+  padding: 150px 0;
 
-  ba .title {
-    display: flex;
-    span {
-      opacity: 0;
+  .content {
+    h1 {
+      text-align: center;
+      font-size: 186px;
+      letter-spacing: -8px;
+      margin-bottom: 180px;
     }
   }
 
-  .cards-container {
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-  }
-  .roadmap-card {
-    display: flex;
-    margin-bottom: 48px;
-    &:last-child {
-      margin-bottom: unset;
-    }
+  .Collapsible {
+    border-bottom: 3px solid #141414;
   }
 
-  .card-image {
-    min-width: 300px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    align-items: center;
+  .Collapsible__trigger {
+    display: block;
+    clip-path: polygon(4% 0,100% 0,100% 60%,96% 100%,0 100%,0 40%);
+    background-color: #252525;
+    &.is-open {
+      background-color: #333333;
+
+      .trigger-inner {
+        .number {
+          font-weight: 400;
+          font-family: ${({theme}) => theme.fonts.secondary};
+          font-style: normal;
+          
+        }
+        
+        .text {
+          font-weight: 800;
+        }
+      }
+
+      .icon-wrapper {
+        img {
+          opacity: 1;
+          @supports not selector(:nth-child(1 of x)) {
+            filter: drop-shadow(0 0 12px  rgba(255, 255, 255, 1));
+          }
+        }
+      }
+    }
+    
+
+  }
+
+  .Collapsible__contentInner {
+    padding: 40px 78px;
+    background-color: #333333;
+    font-size: 16px;
+    user-select: none;
+    font-weight: 300;
+    border-top: 3px solid #141414;
+  }
+
+  .trigger-inner {
     position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-    img {
+    cursor: pointer;
+    user-select: none;
+    font-weight: 400;
+    display: flex;
+      // font-family: ${({ theme }) => theme.fonts.secondary};
+
+    .number {
+      min-width: 275px;
+      font-size: 75px;
+      line-height: 1;
+      text-align: center;
+      font-style: italic;
+      font-weight: 100;
+      position: relative;
+      padding: 32px 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 300px;
+        width: 3px;
+        background-color: #141414;
+        transform: rotate(25deg);
+        transform-origin: top;
+      }
+    }
+    
+    .text {
+      padding: 32px 120px 32px 32px;
+      display: flex;
+      align-items: center;
+      font-weight: 300;
+      text-transform: uppercase;
       width: 100%;
-      max-width: 192px;
-      z-index: 3;
     }
-    &::after {
-      content: "";
+
+    .icon-wrapper {
       position: absolute;
-      width: 100% !important;
-      height: 100% !important;
-      box-shadow: rgb(16 7 41) 1px 0px 20px 25px inset;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      border-radius: 50%;
-    }
-    .roadmap-video {
-      position: absolute;
-      width: 100% !important;
-      height: 100% !important;
-      border-radius: 50%;
-      z-index: 0;
-      top: 0;
-      left: 0;
-      padding: 4px;
+      top: 50%;
+      transition: 0.5s;
+      transform: translateY(-50%);
+      border-radius: 20px 0 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 40px;
+      
+      img {
+        width: 60px;
+        opacity: .3;
+      }
     }
   }
 
-  .card-info {
-    margin-left: 20px;
-    text-align: left;
-    span {
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 24px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+    .content {
+      h1 {
+        text-align: center;
+        font-size: 140px;
+        margin-bottom: 116px;
+      }
+
     }
-    h4 {
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 32px;
-      margin: 4px 0 24px 0;
-      text-transform: uppercase;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    padding: 100px 0;
+    .content {
+      h1 {
+        text-align: center;
+        font-size: 126px;
+        margin-bottom: 80px;
+      }
+    }
+    
+    .trigger-inner {
+      .number {
+        padding: 20px 80px;
+        font-size: 50px;
+      }
+      .text {
+        padding: 20px 100px 20px 20px;
+      }
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 80px 0;
+    .content {
+      h1 {
+        font-size: 97px;
+      }
+    }
+    .Collapsible__contentInner {
+      padding: 32px 56px;
+    }
+    .trigger-inner {
+      .number {
+        padding: 12px 20px;
+        min-width: 180px;
+      }
+      .text {
+        padding: 12px 100px 12px 12px;
+      }
+      .icon-wrapper {
+        img {
+          width: 40px;
+        }
+      }
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
-    .roadmap-card {
-      flex-direction: column;
-      margin-bottom: 24px;
-      .card-image {
-        min-width: unset;
-        width: 100%;
-        max-width: 300px;
+    padding: 60px 0;
+
+    .Collapsible__contentInner {
+      padding: 16px 28px;
+    }
+
+    .trigger-inner {
+      .number {
+        padding: 12px 20px;
+        min-width: 130px;
+        font-size: 40px;
+      }
+      .text {
+        padding: 12px 60px 12px 12px;
+      }
+      .icon-wrapper {
+        right: 20px;
+        img {
+          width: 28px;
+        }
       }
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
-    .roadmap-card {
-      .card-image {
-        min-width: unset;
-        width: 100%;
-        max-width: 250px;
-        height: 250px;
+    .content {
+      h1 {
+        text-align: center;
+        font-size: 73px;
+        margin-bottom: 50px;
+      }
+    }
+
+    .Collapsible__contentInner {
+      font-size: 14px;
+    }
+    
+    .trigger-inner {
+      .number {
+        min-width: 85px;
+        font-size: 20px;
+      }
+      .text {
+        font-size: 12px;
+      }
+      .icon-wrapper {
+        right: 10px;
         img {
-          width: 150px;
+          width: 20px;
         }
       }
     }

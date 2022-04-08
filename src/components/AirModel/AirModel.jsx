@@ -1,17 +1,13 @@
 import React, { useRef, Suspense } from "react"
-import { OrbitControls, Environment, useGLTF, Stage } from "@react-three/drei"
-import { Canvas, useFrame } from "@react-three/fiber"
+import { OrbitControls, useGLTF, Stage } from "@react-three/drei"
+import { Canvas } from "@react-three/fiber"
 
 const Model = ({ ...props }) => {
   const group = useRef()
   const { nodes } = useGLTF("/sneaker-compressed.glb")
 
-  useFrame(state => {
-    const t = state.clock.getElapsedTime()
-    group.current.position.y = (-5 + Math.sin(t / 1.2)) / 44
-  })
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group  ref={group} {...props} dispose={null}>
       <mesh
         geometry={nodes.AirMax_Head_Low.geometry}
         material={nodes.AirMax_Head_Low.material}
@@ -36,23 +32,29 @@ const Model = ({ ...props }) => {
 function App() {
   return (
     <Canvas
-      shadows
-      dpr={[1, 2]}
-      camera={{ zoom: 0.8, position: [0, 0, 0], fov: 30 }}
+      shadows={false}
+      camera={{ zoom: 0.7, position: [0, 0, 0], fov: 30  }}
     >
       <Suspense fallback={null}>
-        <Stage preset="rembrandt" intensity={0.9}>
+        <Stage
+          contactShadow={false}
+          preset="soft"
+          intensity={0.9}
+        >
           <Model />
+          <OrbitControls
+            autoRotate
+            autoRotateSpeed={6}
+            enableZoom={false}
+            enablePan={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+            target={[0, 0.13, 0]}
+          />
         </Stage>
-        <Environment preset="sunset" />
+
       </Suspense>
-      <OrbitControls
-        autoRotate
-        autoRotateSpeed={6}
-        enableZoom={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 2}
-      />
+
     </Canvas>
   )
 }

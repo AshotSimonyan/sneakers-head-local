@@ -112,8 +112,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSizes.lg};
     color: ${({ theme }) => theme.colors.white};
     background: ${({ theme }) => theme.colors.black};
-    font-weight: 400;
-    line-height: 1.4;
+    font-weight: 100;
+    line-height: 1.5;
     overflow-x: hidden;
     margin: 0;
   }
@@ -121,22 +121,17 @@ export const GlobalStyle = createGlobalStyle`
   .container {
     max-width: 1570px;
     width: 100%;
-    padding: 0 16px;
+    padding: 0 80px;
     margin: 0 auto;
-  }
-
-  .main-wrapper {
-    padding-top: 134px;
-    overflow-x: hidden;
   }
 
   /*typography*/
 
   h1, h2, h3, .h1, .h2, .h3 {
-    font-weight: 900;
-    line-height: 1.2;
+    font-weight: 400;
+    line-height: 1;
     font-family: ${({ theme }) => theme.fonts.secondary};
-    letter-spacing: 0.04em;
+    letter-spacing: -0.06em;
   }
 
   h1, .h1 {
@@ -183,14 +178,24 @@ export const GlobalStyle = createGlobalStyle`
   iframe {
     pointer-events: none; /*for development*/
   }
+  
+  canvas {
+    background-color: transparent;
+  }
 
 
   /*media queries*/
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+    body {
+      font-size: ${({ theme }) => theme.fontSizesLG.lg};
+    }
+    .container {
+      max-width: 1232px;
+    }
+  }
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
 
-    body {
-      font-size: ${({ theme }) => theme.fontSizesSM.lg};
-    }
+    
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesSM.h1};
     }
@@ -214,6 +219,11 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+
+    .container {
+      padding: 0 24px;
+    }
+    
     h1, .h1 {
       font-size: ${({ theme }) => theme.titleSizesXS.h1};
     }

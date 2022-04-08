@@ -9,8 +9,8 @@ export const theme = {
     white: "#ffffff",
   },
   fonts: {
-    primary: "'Poppins', sans-serif",
-    secondary: "'Montserrat', sans-serif",
+    primary: "'Exo 2', sans-serif",
+    secondary: "'Fugaz One', cursive",
   },
   titleSizes: {
     h1: "56px",
@@ -26,16 +26,17 @@ export const theme = {
     h1: "32px",
   },
   fontSizes: {
-    lg: "24px",
+    lg: "25px",
     md: "16px",
     sm: "14px",
   },
-  fontSizesSM: {
+  fontSizesLG: {
     lg: "20px",
   },
   breakpoints: {
-    xs: 359,
-    sm: 575,
+    xxs: 359,
+    xs: 575,
+    sm: 767,
     md: 991,
     lg: 1199,
     xl: 1439,

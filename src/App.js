@@ -1,19 +1,17 @@
 import { useEffect, useState, useRef } from "react"
 import About from "./components/About/About"
 import Footer from "./components/Footer/Footer"
-import Loader from "./components/Loader/Loader"
 import { useLockedBody } from "./hooks/useLockedBody"
 import FAQ from "./components/FAQ/FAQ"
 import Roadmap from "./components/Roadmap/Roadmap"
 import Team from "./components/Team/Team"
 import Header from "./components/Header/Header"
 import Preloader from "./components/Preloader/Preloader"
-import AirModel from "./components/AirModel/AirModel"
-import ComingSoon from "./components/ComingSoon/ComingSoon"
+import { AppStyle } from "./styles/App.style"
 
 function App() {
   const [loading, setLoading] = useState(true)
-  // const [, setLocked] = useLockedBody(true);
+  const [, setLocked] = useLockedBody(true);
   const [scrollTo, setScrollTo] = useState(null)
   const roadmapRef = useRef(null)
   const faqRef = useRef(null)
@@ -47,22 +45,24 @@ function App() {
 
   const handleLoad = () => {
     setLoading(false)
-    // setLocked(false);
+    setLocked(false);
   }
   return (
-    <main>
-      {/*<Loader className={loading ? "" : "hide-loader"} />*/}
-      <Header onLinkClick={handleLinkClick} />
+    <AppStyle>
+      <Preloader handleLoad={handleLoad} />
       <div className="main-wrapper">
-        {/*<Hero ref={heroRef} />*/}
+        <Header onLinkClick={handleLinkClick} />
         <About ref={aboutRef} />
         <Roadmap ref={roadmapRef} />
-        <FAQ ref={faqRef} />
         <Team ref={teamRef} />
+        <FAQ ref={faqRef} />
         <Footer />
       </div>
-    </main>
+    </AppStyle>
   )
+/*  return (
+    <ComingSoon />
+  )*/
 }
 
 export default App

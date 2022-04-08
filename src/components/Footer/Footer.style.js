@@ -2,9 +2,11 @@ import styled from "styled-components"
 
 export const FooterStyle = styled.footer`
   text-align: center;
-  padding: 24px 0;
-  background-color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+  
+  .content {
+    border-top: 1px solid #3E3E3E;
+    padding: 116px 0 140px;
+  }
 
   .social {
     display: flex;
@@ -12,13 +14,24 @@ export const FooterStyle = styled.footer`
     padding-bottom: 16px;
 
     li {
-      margin: 0 8px;
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+  }
+  
+  .logo-wrapper {
+    max-width: 183px;
+    width: 100%;
+    margin: 20px auto;
+    img {
+      width: 100%;
     }
   }
   .copyright {
     color: white;
-    font-size: 16px;
-    font-weight: 400;
+    font-weight: 100;
+    font-size: 38px;
   }
 
   .social-btn {
@@ -47,6 +60,37 @@ export const FooterStyle = styled.footer`
           fill: ${({ theme }) => theme.colors.black};
         }
       }
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+    .content {
+      padding: 80px 0 100px;
+    }
+    
+    .copyright {
+      font-size: 28px;
+    }
+
+    .logo-wrapper {
+      max-width: 137px;
+      margin: 12px auto;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    .content {
+      padding: 40px 0 60px;
+    }
+
+    .copyright {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    .content {
+      padding: 30px 0 40px;
     }
   }
 `
