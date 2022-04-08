@@ -29,8 +29,8 @@ export const PreloaderStyle = styled.div`
   .CircularProgressbar-path {
     stroke: #fff !important;
     stroke-width: 3px;
-    /* filter: drop-shadow(0px 0px 3px #fff);
-      -webkit-filter: drop-shadow(0px 0px 3px #fff); */
+     filter: drop-shadow(0px 0px 3px #fff);
+      -webkit-filter: drop-shadow(0px 0px 3px #fff); 
   }
   .CircularProgressbar-text {
     font-size: 2rem;

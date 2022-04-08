@@ -116,25 +116,25 @@ export const AboutStyle = styled.section`
     }
 
     &:nth-child(2) {
-      transform: rotate(45deg);
+      transform: rotate(60deg);
       img {
-        transform: translate(-50%, 50%) rotate(-45deg);
+        transform: translate(-50%, 50%) rotate(-60deg);
       }
       &:hover {
       img {
-        transform: translate(-50%, 50%) scale(1.3) rotate(-45deg);
+        transform: translate(-50%, 50%) scale(1.3) rotate(-60deg);
       }
     }
     }
 
     &:nth-child(3) {
-      transform: rotate(90deg);
+      transform: rotate(120deg);
       img {
-        transform: translate(-50%, 50%) rotate(-90deg);
+        transform: translate(-50%, 50%) rotate(-120deg);
       }
       &:hover {
       img {
-        transform: translate(-50%, 50%) scale(1.3) rotate(-90deg);
+        transform: translate(-50%, 50%) scale(1.3) rotate(-120deg);
       }
     }
     }
@@ -152,25 +152,25 @@ export const AboutStyle = styled.section`
     }
 
     &:nth-child(5) {
-      transform: rotate(270deg);
+      transform: rotate(240deg);
       img {
-        transform: translate(-50%, 50%) rotate(90deg);
+        transform: translate(-50%, 50%) rotate(120deg);
       }
       &:hover {
       img {
-        transform: translate(-50%, 50%) scale(1.3) rotate(90deg);
+        transform: translate(-50%, 50%) scale(1.3) rotate(120deg);
       }
     }
     }
 
     &:nth-child(6) {
-      transform: rotate(315deg);
+      transform: rotate(300deg);
       img {
-        transform: translate(-50%, 50%) rotate(45deg);
+        transform: translate(-50%, 50%) rotate(60deg);
       }
       &:hover {
       img {
-        transform: translate(-50%, 50%) scale(1.3) rotate(45deg);
+        transform: translate(-50%, 50%) scale(1.3) rotate(60deg);
       }
     }
     }
