@@ -26,7 +26,7 @@ const teamList = [
     url: '#'
   },
   {
-    position: "UI/UX",
+    position: "UI Developer",
     name: "VAN",
     url: '#'
   },
